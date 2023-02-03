@@ -2,7 +2,7 @@
 <h2>add a lesson</h2>
 <form>
   <br/>
-
+  <button (click)="change()">tab</button>
   <mat-form-field appearance="outline" [color]="">
     <mat-label>lesson name</mat-label>
     <input matInput placeholder="Placeholder" #lesson_name>
@@ -33,7 +33,7 @@
   </select>
 <br>
 
-  <input type="button" value="submit" mat-raised-button class="button" (click)="addNewLesson(frontal,circle,auditorium, +number_of_student.value,lesson_name.value, start.value,end.value, class.value)"/>
+  <button mat-raised-button class="button" (click)="addNewLesson(frontal,circle,auditorium, +number_of_student.value,lesson_name.value, start.value,end.value, class.value)">submit</button>
 
 
 </form>

@@ -7,6 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'frontend';
+  tab:number = 0;
+  changeTab= (tab:number):void=>{
+    this.tab=tab;
+
+  }
+
 
 }
 
