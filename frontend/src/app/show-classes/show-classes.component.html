@@ -1,0 +1,18 @@
+<h2>list of classes</h2>
+<table>
+  <tr><td>id</td>
+    <td>number_of_class</td>
+    <td>max_student</td>
+    <td>frontal</td>
+    <td>circle</td>
+    <td>auditorium</td>
+    </tr>
+    <tr style="color: darkblue;" *ngFor="let item of classesList">
+      <td>{{item.id}}</td>
+    <td>{{item.number_of_class}}</td>
+    <td>{{item.max_student}}</td>
+    <td>{{item.frontal? "✅":"❌"}}</td>
+    <td>{{item.circle? "✅":"❌"}}</td>
+    <td>{{item.auditorium? "✅":"❌"}}</td>
+    </tr>
+</table>

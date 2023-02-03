@@ -1,0 +1,40 @@
+<div class="new-LessonContainer">
+<h2>add a lesson</h2>
+<form>
+  <br/>
+
+  <mat-form-field appearance="outline" [color]="">
+    <mat-label>lesson name</mat-label>
+    <input matInput placeholder="Placeholder" #lesson_name>
+  </mat-form-field>
+<br/>
+  <mat-form-field appearance="outline" [color]="">
+    <mat-label>estimated number of students</mat-label>
+    <input matInput placeholder="Placeholder" #number_of_student>
+  </mat-form-field>
+  <br/>
+  lesson start : <input #start type="datetime-local" id="meeting-time"
+  name="meeting-time" min="2018-06-07T00:00" max="2023-06-14T00:00"><br>
+  lesson end : <input type="time" #end><br><br>
+
+  <mat-radio-group aria-label="Select an option">
+    <mat-radio-button color="primary" class="radio" #frontal value="frontal">frontal</mat-radio-button>
+    <mat-radio-button color="primary" class="radio" #circle value="circle">circle</mat-radio-button>
+    <mat-radio-button color="primary" class="radio" #auditorium value="auditorium">auditorium</mat-radio-button>
+  </mat-radio-group>
+
+  <br>
+  <input type="button" class="button" value="find A Class" (click)="findClass(frontal,circle,auditorium, +number_of_student.value,lesson_name.value, start.value,end.value)"/>
+  <br>    choose class:
+
+  <select defaultSelected="choose class" #class>
+    <option disabled >choose class</option>
+    <option *ngFor="let item of classesList" value="{{item.id}}">class -{{item.number_of_class}} suited for - {{item.max_student}} {{item.frontal? ",frontal":""}} {{item.circle? ",circle":""}}{{item.auditorium? ",auditorium":""}}</option>
+  </select>
+<br>
+
+  <input type="button" value="submit" mat-raised-button class="button" (click)="addNewLesson(frontal,circle,auditorium, +number_of_student.value,lesson_name.value, start.value,end.value, class.value)"/>
+
+
+</form>
+</div>

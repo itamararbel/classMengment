@@ -1,0 +1,26 @@
+<h2>add a new class</h2>
+<form>
+  <br/>
+
+  <mat-form-field appearance="outline" [color]="">
+    <mat-label>class number</mat-label>
+    <input matInput placeholder="Placeholder" #number_of_class>
+  </mat-form-field>
+<br/>
+  <mat-form-field appearance="outline" [color]="">
+    <mat-label>max students</mat-label>
+    <input matInput placeholder="Placeholder" #max_student>
+  </mat-form-field>
+  <br/>
+
+
+  <mat-checkbox color="primary" class="example-margin" #frontal>frontal</mat-checkbox>
+  <mat-checkbox color="primary" class="example-margin"#circle>circle</mat-checkbox>
+  <mat-checkbox   color="primary" class="example-margin"#auditorium>auditorium</mat-checkbox>
+<br>
+
+  <input type="button" value="submit" mat-raised-button class="button" (click)="submitClass(+number_of_class.value, +max_student.value, frontal,circle,auditorium)"/>
+
+
+</form>
+

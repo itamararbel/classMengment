@@ -1,0 +1,29 @@
+<h2>lessons scheduled</h2>
+    sort by:
+<mat-button-toggle-group name="sortBy" aria-label="sortBy" class="toggle">
+  <mat-button-toggle (change)="sortByDate()">date</mat-button-toggle>
+  <mat-button-toggle (change)="sortByClass()">class</mat-button-toggle>
+  <mat-button-toggle (change)="sortByIdOrder()">by schedule</mat-button-toggle>
+</mat-button-toggle-group>
+
+<table>
+
+  <tr>
+    <th>classId</th>
+    <th>lesson_name</th>
+    <th>number_of_student</th>
+    <th>sitting</th>
+    <th>date</th>
+    <th>start</th>
+    <th>end</th>
+  </tr>
+  <tr *ngFor="let item of LessonsList">
+    <td [style.background-color]="item.length">{{ item.class_number}}</td>
+    <td [style.background-color]="item.length">{{item.lesson_name}}</td>
+    <td [style.background-color]="item.length">{{ item.number_of_student }}</td>
+    <td [style.background-color]="item.length">{{ item.sitting }}</td>
+    <td [style.background-color]="item.length">{{ item.date.split("T")[0] }}</td>
+    <td [style.background-color]="item.length">{{ item.lesson_start.split("T")[0].substring(0,5) }}</td>
+    <td [style.background-color]="item.length">{{ item.lesson_end.split("T")[0].substring(0,5) }}</td>
+  </tr>
+</table>
