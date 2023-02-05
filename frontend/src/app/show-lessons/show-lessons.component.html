@@ -5,7 +5,7 @@
   <mat-button-toggle (change)="sortByClass()">class</mat-button-toggle>
   <mat-button-toggle (change)="sortByIdOrder()">by schedule</mat-button-toggle>
 </mat-button-toggle-group>
-
+<input type="text" placeholder="search" (keyup)="filterResp(searchExp.value)" #searchExp>
 <table>
 
   <tr>
@@ -16,14 +16,16 @@
     <th>date</th>
     <th>start</th>
     <th>end</th>
+    <th>delete</th>
   </tr>
-  <tr *ngFor="let item of LessonsList">
-    <td [style.background-color]="item.length">{{ item.class_number}}</td>
+  <tr *ngFor="let item of lessonsFilterd">
+    <td [style.background-color]="item.length">{{ item.class_number===0? "רשימת המתנה":item.class_number}}</td>
     <td [style.background-color]="item.length">{{item.lesson_name}}</td>
     <td [style.background-color]="item.length">{{ item.number_of_student }}</td>
     <td [style.background-color]="item.length">{{ item.sitting }}</td>
     <td [style.background-color]="item.length">{{ item.date.split("T")[0] }}</td>
     <td [style.background-color]="item.length">{{ item.lesson_start.split("T")[0].substring(0,5) }}</td>
     <td [style.background-color]="item.length">{{ item.lesson_end.split("T")[0].substring(0,5) }}</td>
+    <td (click)="deleteLesson(item.id)" [style.background-color]="item.length"x>❌</td>
   </tr>
 </table>

@@ -13,7 +13,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
-
+import { UploadComponent } from './upload/upload.component';
+import {SpreadSheetsModule } from '@grapecity/spread-sheets-angular';
 
 
 
@@ -24,6 +25,7 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     NewLessonComponent,
     ShowClassesComponent,
     ShowLessonsComponent,
+    UploadComponent,
 
 
 
@@ -37,7 +39,9 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     MatInputModule,
     MatCheckboxModule,
     MatRadioModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    SpreadSheetsModule,
+
   ],
   providers: [
 

@@ -1,10 +1,10 @@
 <h1>my class constributer</h1>
 
 <mat-tab-group [selectedIndex]="tab">
-  <mat-tab label="show lessons"><app-show-lessons></app-show-lessons></mat-tab>
-
-  <mat-tab label="show classes"><app-show-classes></app-show-classes></mat-tab>
+  <mat-tab label="show lessons"><app-show-lessons [changeTab]="changeTab"></app-show-lessons></mat-tab>
+  <mat-tab label="show classes"><app-show-classes [changeTab]="changeTab"></app-show-classes></mat-tab>
   <mat-tab label="new lesson"> <app-new-lesson [changeTab]="changeTab"></app-new-lesson></mat-tab>
-  <mat-tab label="new class"><app-new-class></app-new-class></mat-tab>
+  <mat-tab label="new class"><app-new-class [changeTab]="changeTab"></app-new-class></mat-tab>
+  <mat-tab label="new class"><app-upload [changeTab]="changeTab"></app-upload></mat-tab>
 
 </mat-tab-group>

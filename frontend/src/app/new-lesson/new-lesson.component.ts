@@ -22,8 +22,7 @@ export class NewLessonComponent {
     const newLesson = new Lessons(NaN, number_of_student, sitting, start.split("T")[0], start.split("T")[1], end, lesson_name, +selectedClass)
     this.classService.postNewLesson(newLesson).subscribe(resp => {
       console.log("passing");
-      this.change();
-      setTimeout(() => this.changeTab(1), 5000)
+
 
     })
   }
@@ -37,9 +36,5 @@ export class NewLessonComponent {
     })
   }
 
-  change = () => {
-    console.log("fdafdas")
-    this.changeTab(1)
-  }
 
 }

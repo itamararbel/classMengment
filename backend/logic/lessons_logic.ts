@@ -32,10 +32,27 @@ const lessonsBetween = async (lessonsFrom:string,lessonsTo:string):Promise<lesso
     return await dal.execute(sql);
 }
 
+const addMultipleLessons= async(lessons:lessonsModal[]):Promise<lessonsModal[]>=>{
+    console.log(lessons)
+    let sql = `insert into lessons VALUES`
+     lessons.map((newLesson)=>{
+     sql += `(default, '${newLesson.lesson_name}', ${newLesson.number_of_student} ,'${newLesson.sitting}', '${newLesson.date}' , '${newLesson.lesson_start}' ,'${newLesson.lesson_end}',  ${newLesson.classId}),`
+    })
+    try{
+        sql = sql.slice(0, sql.length - 1) ;
+        dal.execute(sql);
+     }catch(err){
+        console.log(err);
+
+     }
+    return(lessons)
+}
+
 export default {
     deleteLesson,
     lessonsBetween,
     editLesson,
     addLesson,
-    getAllLessons
+    getAllLessons,
+    addMultipleLessons
 }

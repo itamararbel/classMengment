@@ -1,4 +1,5 @@
 <h2>list of classes</h2>
+<input type="date" #date (change)="checkDate(date.value)">
 <table>
   <tr><td>id</td>
     <td>number_of_class</td>
@@ -6,6 +7,7 @@
     <td>frontal</td>
     <td>circle</td>
     <td>auditorium</td>
+    <td>length of use</td>
     </tr>
     <tr style="color: darkblue;" *ngFor="let item of classesList">
       <td>{{item.id}}</td>
@@ -14,5 +16,6 @@
     <td>{{item.frontal? "✅":"❌"}}</td>
     <td>{{item.circle? "✅":"❌"}}</td>
     <td>{{item.auditorium? "✅":"❌"}}</td>
+    <td>{{item.total_length}}</td>
     </tr>
 </table>

@@ -1,0 +1,50 @@
+<p>upload works!</p>
+
+<div class='loadExcelInput'>
+  <p>Open Excel File</p>
+  <input type="file" name="files[]" multiple id="jsonFile" accept=".xlsx" (change)="onFileChange($event)" />
+</div>
+
+<!-- <div class='exportExcel'>
+  <p>Save Excel File</p>
+  <button (click)="onClickMe($event)">Save Excel!</button>
+</div> -->
+<!-- <gc-spread-sheets [backColor]=spreadBackColor [hostStyle]="hostStyle" (workbookInitialized)="workbookInit($event)">
+</gc-spread-sheets> -->
+
+<table>
+
+  <tr>
+    <!-- <th>classId</th> -->
+    <th>lesson_name</th>
+    <th>number_of_student</th>
+    <th>sitting</th>
+    <th>date</th>
+    <th>start</th>
+    <th>end</th>
+    <th>classes available</th>
+  </tr>
+  <tr *ngFor="let item of lessons,  let i = index">
+    <!-- <td [style.background-color]="item.length">{{ item.class_number}}</td> -->
+    <td [style.background-color]="item.length">{{item.lesson_name}}</td>
+    <td [style.background-color]="item.length">{{ item.number_of_student }}</td>
+    <td [style.background-color]="item.length">{{ item.sitting }}</td>
+    <td [style.background-color]="item.length">{{ item.date.split("T")[0] }}</td>
+    <td [style.background-color]="item.length">{{ item.lesson_start.split("T")[0].substring(0,5) }}</td>
+    <td [style.background-color]="item.length">{{ item.lesson_end.split("T")[0].substring(0,5) }}</td>
+    <td [style.background-color]="item.length"x>
+      <select defaultSelected="choose class" (change)="chooseClass(i,+class.value)" #class>
+        <option disabled >choose class</option>
+        <option  *ngFor="let class of (item.class_options)" value="{{class.id}}">{{class.number_of_class===0?"לרשימת המתנה":"class -"+class.number_of_class}}  {{class.number_of_class===0?"" : "suited for -"+class.max_student}} {{class.number_of_class===0?"":class.frontal? ",frontal":""}} {{class.number_of_class===0?"":class.circle? ",circle":""}}{{class.number_of_class===0?"":class.auditorium? ",auditorium":""}}</option>
+      </select>
+    </td>
+  </tr>
+  <div *ngIf="oneClass.length>0">
+    <select defaultSelected="choose class" (change)="chooseOneClass(+selectedClass.value)" #selectedClass>
+      <option disabled >choose class</option>
+      <option  *ngFor="let class of oneClass" value="{{class.id}}">{{class.number_of_class===0?"לרשימת המתנה":"class -"+class.number_of_class}}  {{class.number_of_class===0?"" : "suited for -"+class.max_student}} {{class.number_of_class===0?"":class.frontal? ",frontal":""}} {{class.number_of_class===0?"":class.circle? ",circle":""}}{{class.number_of_class===0?"":class.auditorium? ",auditorium":""}}</option>
+    </select>
+  </div>
+  <button (click)="postLessons()">Submit all classes</button>
+
+</table>

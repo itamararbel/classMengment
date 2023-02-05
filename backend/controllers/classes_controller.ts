@@ -7,6 +7,14 @@ classesController.get("/all", async (request:Request, response:Response, next:Ne
     response.status(200).json(await classes_logic.getAllClasses())
 })
 
+
+classesController.get("/date/:date", async (request:Request, response:Response, next:NextFunction) => {
+    const date = request.params.date
+    response.status(200).json(await classes_logic.getClassesByDate(date))
+})
+
+
+
 classesController.post("/findClass", async (request:Request, response:Response, next:NextFunction) => {
     const newLesson = request.body;
     response.status(200).json(await classes_logic.findClass(newLesson))
@@ -26,6 +34,8 @@ classesController.delete("/delete/:id", async (request:Request, response:Respons
     const id = +request.params.id;
     response.status(204).json(await classes_logic.deleteClass(id))
 })
+
+
 
 
 export default classesController;

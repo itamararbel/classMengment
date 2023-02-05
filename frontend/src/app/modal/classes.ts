@@ -5,6 +5,7 @@ export class Classes {
     frontal:boolean=false;
     circle:boolean=false;
     auditorium: boolean=false;
+    total_length:string=""
     constructor(number_of_class:number, max_student:number,frontal:boolean, circle:boolean, auditorium:boolean){
       this.number_of_class = number_of_class;
       this.max_student = max_student;

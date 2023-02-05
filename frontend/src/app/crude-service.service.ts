@@ -16,6 +16,10 @@ export class CrudeService {
     return this.http.get<any[]>(this.URLclasses+"/all");
 }
 
+getClassesByDate(date:string):Observable<any[]> {
+  return this.http.get<any[]>(this.URLclasses+"/date/"+date);
+}
+
 getAllLessons(): Observable<any[]> {
   return this.http.get<any[]>(this.URLLessons+"/all");
 }
@@ -27,4 +31,12 @@ postNewLesson(newLesson:Lessons):Observable<Lessons>{
 }
 findClass(newLesson:Lessons):Observable<Classes[]>{
   return this.http.post<Classes[]>(this.URLclasses+"/findClass",newLesson);
-}}
+}
+deleteLesson(id:number):Observable<any>{
+  return this.http.delete<any>(this.URLLessons+"/delete/"+id,{observe:"response"})
+}
+postMultipleLessons(lessons:Lessons[]):Observable<Lessons[]>{
+  return this.http.post<Lessons[]>(this.URLLessons+"/postMultipleLessons/",lessons)
+}
+
+}

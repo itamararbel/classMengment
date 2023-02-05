@@ -35,10 +35,20 @@ const findClass = async (newLesson: lessonsModal): Promise<classesModal[]> => {
     return await dal.execute(sql)
 }
 
+const getClassesByDate =async (date:string): Promise<lessonsModal[]>=> {
+    
+    const sql = `select classes.*, SEC_TO_TIME(SUM(TIME_TO_SEC(timediff(lesson_end, lesson_start)))) as total_length
+    from classes
+    left join lessons on classes.id = lessons.classid and date = '${date}'
+    group by classes.id
+     `
+     return dal.execute(sql)
+ }
 export default {
     deleteClass,
     editClass,
     addClass,
     getAllClasses,
-    findClass
+    findClass,
+    getClassesByDate
 }

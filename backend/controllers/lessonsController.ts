@@ -27,6 +27,11 @@ lessonsController.get("/between/:from/:to", async (request:Request, response:Res
     response.status(200).json(await lessons_logic.lessonsBetween(lessonsFrom, lessonsTo))
 })
 
+lessonsController.post("/postMultipleLessons", async (request:Request, response:Response, next:NextFunction) => {
+    const newLessons = request.body;
+    response.status(201).json(await lessons_logic.addMultipleLessons(newLessons))
+})
+
 
 
 export default lessonsController;
